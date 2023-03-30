@@ -1,0 +1,41 @@
+
+spring:
+  datasource:
+    driver-class-name: ${db.driver-class-name}
+    url: ${db.url}
+    username: ${db.username}
+    password: ${db.password}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    #create : Delete an existing table and recreate it
+    #create-drop : Same as 'create' but table drop at the end of the session
+    #update : Reflect changes only
+    #validate : Check the object configuration and schema mapping
+    #none : Doing nothing
+    #운영 단계 : validate, none (이 둘을 제외한 나머지는 운영단계에서 사용하지 않음)
+    #개발 초기 : create, create-drop, update
+    #테스트 : update, validate
+
+    properties:
+      hibernate:
+        format_sql: true #To beautify or pretty print the SQL
+        show_sql: true #show sql
+  config:
+    import: db.yml
+
+server:
+  port: 8080
+
+#security:
+#  jwt:
+#    token:
+#      security-key: secret-key
+#      expiration-length: 3600000
+
+#logging:
+#  level:
+#    org.hibernate:
+#      type.descriptor.sql: trace #show parameter binding
+#      SQL: DEBUG
