@@ -30,8 +30,13 @@ public class QuestionController {
 
     @GetMapping("/findOne/{questionID}")
     public Optional<QuestionDTO> findOne(@PathVariable long questionID){
-        System.out.println("findOne 진입");
         return service.findOne(questionID);
+    }
+
+    @DeleteMapping("/delete/{questionID}")
+    public String asd(@PathVariable long questionID){
+        service.delete(questionID);
+        return "message:delete OK";
     }
 
 

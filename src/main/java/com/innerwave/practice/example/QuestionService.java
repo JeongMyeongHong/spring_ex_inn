@@ -23,4 +23,7 @@ public class QuestionService {
     public Optional<QuestionDTO> findOne(long questionID){
         return repository.findById(questionID);
     }
+
+    public void delete(long questionID) { repository.deleteById(questionID);
+    }
 }
