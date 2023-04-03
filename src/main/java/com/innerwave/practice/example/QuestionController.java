@@ -17,9 +17,9 @@ public class QuestionController {
         return "Question Home 입니다.";
     }
     @PostMapping("/write")
-    public QuestionDTO save(@RequestBody QuestionDTO questionDTO){
-        System.out.println(questionDTO.getQuestion());
-        return service.save(questionDTO);
+    public String save(@RequestBody QuestionDTO questionDTO){
+        service.save(questionDTO);
+        return "message:save ok";
     }
 
     @PostMapping("/findAll")
@@ -40,9 +40,9 @@ public class QuestionController {
     }
 
 
-    @PostMapping("/update")
-    public String update(String question){
-        System.out.println(question);
-        return question;
+    @PostMapping("/edit")
+    public String update(@RequestBody QuestionDTO questionDTO){
+        service.save(questionDTO);
+        return "message:edit ok";
     }
 }

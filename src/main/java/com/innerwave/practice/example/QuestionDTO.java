@@ -30,4 +30,8 @@ public class QuestionDTO {
 
     @Column @NotNull
     private String question;
+
+    public void setWrittenDate(Timestamp writtenDate) {
+        this.writtenDate = writtenDate;
+    }
 }
